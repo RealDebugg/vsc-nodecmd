@@ -12,11 +12,7 @@ class ScriptsDataProvider {
     }
 
     getTreeItem(element) {
-        const configuration = vscode.workspace.getConfiguration('workbench');
-        const isLight = configuration.get('colorTheme') === 'Default Light+';
-        const iconPath = vscode.Uri.file(
-            `${__dirname}/resources/${isLight ? 'light' : 'dark'}/terminal.png`
-        );
+        const iconPath = new vscode.ThemeIcon("debug-breakpoint-unverified");
         element.iconPath = iconPath;
         return element;
     }

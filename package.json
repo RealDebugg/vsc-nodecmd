@@ -4,7 +4,7 @@
   "icon": "resources/logo.png",
   "displayName": "NPM Scripts Menu",
   "description": "Adds a quick view which works similar to the npm menu in WebStorm. It shows all scripts defined in the package.json file of your project and allows you to run them with a single click.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
     "url": "https://github.com/RealDebugg/vsc-nodecmd"
   },
@@ -42,8 +42,23 @@
         "command": "vsc-nodecmd.runScript",
         "title": "Run Script",
         "category": "vsc-nodecmd"
+      },
+      {
+        "command": "vsc-nodecmd.refreshEntry",
+        "title": "Refresh",
+        "category": "vsc-nodecmd",
+        "icon": "$(refresh)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "vsc-nodecmd.refreshEntry",
+          "when": "view == scripts",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",

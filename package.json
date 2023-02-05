@@ -1,0 +1,69 @@
+{
+  "name": "vsc-nodecmd",
+  "publisher": "RealDebugg",
+  "icon": "resources/logo.png",
+  "displayName": "NPM Scripts Menu",
+  "description": "Adds a quick view which works similar to the npm menu in WebStorm. It shows all scripts defined in the package.json file of your project and allows you to run them with a single click.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/RealDebugg/vsc-nodecmd"
+  },
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "NPM (NODE) Scripts TreeView",
+      "properties": {
+        "vsc-nodecmd.packagemanager": {
+          "type": "string",
+          "default": "npm",
+          "description": "The package manager to execute commands with (npm, yarn, pnpm)."
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "scripts",
+          "name": "npm"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "vsc-nodecmd.runScript",
+        "title": "Run Script",
+        "category": "vsc-nodecmd"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.75.0",
+    "@vscode/test-electron": "^2.2.2",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "generator-code": "^1.7.3",
+    "path": "^0.12.7"
+  }
+}

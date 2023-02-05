@@ -8,3 +8,8 @@ Check the extensions settings if you want to change package manager.
 ## [Unreleased]
 
 - Initial release
+
+## [1.1.0]
+
+- Added refresh option
+- Changed frompng icons to built in Codicon's

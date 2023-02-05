@@ -25,7 +25,3 @@ Then to use it, expand the "npm" menu as shown at the bottom of the project expl
 To change the package manager the npm menu uses to execute commands. Navigate to Settings > Extensions > NPM (NODE) Scripts TreeView > Packagemanager
 
 ![](./docs/step3.png)
-
-
-
-https://code.visualstudio.com/api/working-with-extensions/publishing-extension

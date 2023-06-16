@@ -13,3 +13,11 @@ Check the extensions settings if you want to change package manager.
 
 - Added refresh option
 - Changed frompng icons to built in Codicon's
+
+
+
+
+
+https://i.imgur.com/HBOj1TL.png
+https://i.imgur.com/1yUKcFw.png
+https://i.imgur.com/tyFTdW9.png

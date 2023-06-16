@@ -7,7 +7,7 @@ module.exports = function (context) {
         vscode.commands.registerCommand('vsc-nodecmd.runScript', (scriptCommand) => {
             let packageManager = 'npm';
             let cfg = vscode.workspace.getConfiguration('vsc-nodecmd');
-            packageManager = cfg.packagemanager;
+            packageManager = cfg.packageManager;
 
             vscode.commands.executeCommand(
                 'workbench.action.terminal.new',

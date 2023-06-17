@@ -4,7 +4,7 @@
   "icon": "resources/logo.png",
   "displayName": "NPM Scripts Menu",
   "description": "Adds a quick view which works similar to the npm menu in WebStorm. It shows all scripts defined in the package.json file of your project and allows you to run them with a single click.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "url": "https://github.com/RealDebugg/vsc-nodecmd"
   },

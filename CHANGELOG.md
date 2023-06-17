@@ -22,3 +22,7 @@ Check the extensions settings if you want to change package manager.
 - Added an option to hide updated package.json balloon messages
 - When opening a new project folder that contains a package.json, NPM Menu will notify you through a balloon if you haven't installed any dependencies and ask you if you want to install them
 - When changes in a package.json is detected where the dependencies are missmatching (missing, updated version, removed etc.) NPM Menu will display a balloon asking if you want to install the changes
+
+## [1.2.1]
+
+- Fixed an issue where on run time the plugin expects there to be a package.json even if there isn't

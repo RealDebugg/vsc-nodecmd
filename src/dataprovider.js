@@ -48,6 +48,12 @@ class ScriptsDataProvider {
             return;
         }
         const packageJsonPath = `${folder.uri.fsPath}/package.json`;
+
+        // Check if package.json file exists
+        if (!fs.existsSync(packageJsonPath)) {
+            return;
+        }
+
         this.handlePackageJsonSave(packageJsonPath);
     }    
 

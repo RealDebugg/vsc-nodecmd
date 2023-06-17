@@ -7,6 +7,7 @@ class ScriptsDataProvider {
         this._onDidChangeTreeData = new vscode.EventEmitter();
         this.onDidChangeTreeData = this._onDidChangeTreeData.event;
 
+        this.initialUpdateCheck();
         this.checkDependencies();
 
         this.pkgNotif = this.cmdType = vscode.workspace.getConfiguration('vsc-nodecmd').get('packageNotifications');
@@ -34,6 +35,22 @@ class ScriptsDataProvider {
         this._onDidChangeTreeData.fire();
     }
 
+    initialUpdateCheck() {
+        if (!vscode.workspace.getConfiguration('vsc-nodecmd').get('packageNotifications')) {
+            return;
+        }
+        const folders = vscode.workspace.workspaceFolders;
+        if (!folders || folders.length === 0) {
+            return;
+        }
+        const folder = folders[0];
+        if (!folder.uri) {
+            return;
+        }
+        const packageJsonPath = `${folder.uri.fsPath}/package.json`;
+        this.handlePackageJsonSave(packageJsonPath);
+    }    
+
     handlePackageJsonSave(document) {
         if (!vscode.workspace.getConfiguration('vsc-nodecmd').get('packageNotifications')) {
             return;
@@ -43,9 +60,19 @@ class ScriptsDataProvider {
         let cfg = vscode.workspace.getConfiguration('vsc-nodecmd');
         packageManager = cfg.packageManager;
     
-        const savedFilePath = document.uri.fsPath;
-        const folder = vscode.workspace.getWorkspaceFolder(document.uri);
-        const packageJsonPath = folder ? path.join(folder.uri.fsPath, 'package.json') : '';
+        let savedFilePath;
+        let folder;
+        let packageJsonPath;
+        if (document.uri === undefined) {
+            savedFilePath = document;
+            folder = vscode.workspace.workspaceFolders[0];
+            packageJsonPath = document
+        } else {
+            savedFilePath = document.uri.fsPath;
+            folder = vscode.workspace.getWorkspaceFolder(document.uri);
+            packageJsonPath = folder ? path.join(folder.uri.fsPath, 'package.json') : '';
+        }
+        
     
         if (savedFilePath === packageJsonPath) {
             vscode.workspace.fs.readFile(vscode.Uri.file(packageJsonPath)).then((packageJsonData) => {
@@ -92,9 +119,6 @@ class ScriptsDataProvider {
         }
     }
     
-    
-    
-
     checkDependenciesChanged(packageJsonDeps, lockJsonDeps) {
         if (!packageJsonDeps || !lockJsonDeps) {
             return false;

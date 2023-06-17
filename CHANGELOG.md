@@ -12,12 +12,13 @@ Check the extensions settings if you want to change package manager.
 ## [1.1.0]
 
 - Added refresh option
-- Changed frompng icons to built in Codicon's
+- Changed from png icons to built in Codicon's
 
+## [1.2.0]
 
-
-
-
-https://i.imgur.com/HBOj1TL.png
-https://i.imgur.com/1yUKcFw.png
-https://i.imgur.com/tyFTdW9.png
+- Fixed the titles for all settings options
+- Package manager setting is now a dropdown selection menu
+- Added an option to change how the menu runs commands, by command or name
+- Added an option to hide updated package.json balloon messages
+- When opening a new project folder that contains a package.json, NPM Menu will notify you through a balloon if you haven't installed any dependencies and ask you if you want to install them
+- When changes in a package.json is detected where the dependencies are missmatching (missing, updated version, removed etc.) NPM Menu will display a balloon asking if you want to install the changes

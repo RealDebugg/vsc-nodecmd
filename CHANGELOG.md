@@ -26,3 +26,7 @@ Check the extensions settings if you want to change package manager.
 ## [1.2.1]
 
 - Fixed an issue where on run time the plugin expects there to be a package.json even if there isn't
+
+## [1.3.0]
+
+- Terminal windows that are opened through NPM menu are now named after the command that was ran.

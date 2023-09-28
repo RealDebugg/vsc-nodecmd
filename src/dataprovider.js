@@ -226,7 +226,7 @@ class ScriptsDataProvider {
                         command: {
                             command: 'vsc-nodecmd.runScript',
                             title: 'Run Script',
-                            arguments: [scriptName],
+                            arguments: [scriptName, scriptName],
                         },
                     };
                 case "command":
@@ -235,7 +235,7 @@ class ScriptsDataProvider {
                         command: {
                             command: 'vsc-nodecmd.runScript',
                             title: 'Run Script',
-                            arguments: [scriptCommand],
+                            arguments: [scriptCommand, scriptName],
                         },
                     };
                 default:
@@ -244,7 +244,7 @@ class ScriptsDataProvider {
                         command: {
                             command: 'vsc-nodecmd.runScript',
                             title: 'Run Script',
-                            arguments: [scriptName],
+                            arguments: [scriptName, scriptName],
                         },
                     };
             }
